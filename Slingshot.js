@@ -3,7 +3,7 @@ class Slingshot{
         var options = {
             bodyA: bodyA,
             pointB: pointB,
-            stiffness: 0.1,
+            stiffness: 0.04,
             length: 10,
     
         }
@@ -14,6 +14,9 @@ class Slingshot{
         this.pointB=pointB;
         this.sling = Constraint.create(options);
         World.add(world, this.sling);
+    }
+    attach(body) {
+        this.sling.bodyA=body;
     }
     fly() {
         this.sling.bodyA=null;
@@ -35,9 +38,9 @@ class Slingshot{
          }
          else {
             strokeWeight(4);
-            line(pointA.x-20, pointA.y, pointB.x-10, pointB.y);
-            line(pointA.x-20, pointA.y, pointB.x+30, pointB.y);
-            image(this.sling3,pointA.x-30,pointA.y-12,10,25);
+            line(pointA.x+25, pointA.y, pointB.x-10, pointB.y);
+            line(pointA.x+25, pointA.y, pointB.x+30, pointB.y);
+            image(this.sling3,pointA.x+25,pointA.y-12,10,25);
          }
         pop();
         }
